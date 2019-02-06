@@ -59,6 +59,11 @@ public class DefaultHttpServerConfig implements HttpServerConfig {
         this.httpResponseBuilder = new DefaultHttpResponseBuilder(this);
         this.httpRequestDispatcher = new DefaultHttpRequestDispatcher();
         this.workerThreadFactory = new DefaultThreadFactory();
+        this.htmlTemplateManager = new HtmlTemplateManager() {
+            public String processTemplate(String templateName, Map<String, Object> args) {
+                return null;
+            }
+        };
     }
 
     private void loadAllProperties(Properties overrideServerProperties) {
@@ -131,7 +136,7 @@ public class DefaultHttpServerConfig implements HttpServerConfig {
           Integer.parseInt(serverProperties.getProperty("server.port")),
           Integer.parseInt(serverProperties.getProperty("server.thread.count"))
         );
-        if(si.getThreadCount() <= 0) {
+        if(si.getThreadCount() < 0) {
             throw new HttpServerConfigException("server.thread.count should be greater than zero");
         }
         return si;
@@ -139,7 +144,7 @@ public class DefaultHttpServerConfig implements HttpServerConfig {
 
     @Override
     public ServerInfo getServerInfo() {
-        return null;
+        return serverInfo;
     }
 
     @Override
@@ -150,32 +155,32 @@ public class DefaultHttpServerConfig implements HttpServerConfig {
 
     @Override
     public HttpRequestParser getHttpRequestParser() {
-        return null;
+        return httpRequestParser;
     }
 
     @Override
     public HttpResponseBuilder getHttpResponseBuilder() {
-        return null;
+        return httpResponseBuilder;
     }
 
     @Override
     public HttpResponseWriter getHttpResponseWriter() {
-        return null;
+        return httpResponseWriter;
     }
 
     @Override
     public HttpServerContext getHttpServerContext() {
-        return null;
+        return httpServerContext;
     }
 
     @Override
     public HttpRequestDispatcher getHttpRequestDispatcher() {
-        return null;
+        return httpRequestDispatcher;
     }
 
     @Override
     public ThreadFactory getWorkersThreadFactory() {
-        return null;
+        return workerThreadFactory;
     }
 
     @Override

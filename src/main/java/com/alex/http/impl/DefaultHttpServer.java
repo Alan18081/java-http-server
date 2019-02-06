@@ -52,6 +52,7 @@ public class DefaultHttpServer implements HttpServer {
 
     private ServerSocket createServerSocket() {
         int port = httpServerConfig.getServerInfo().getPort();
+        System.out.println(port);
         try {
             ServerSocket serverSocket = new ServerSocket(port);
             serverSocket.setReuseAddress(true);

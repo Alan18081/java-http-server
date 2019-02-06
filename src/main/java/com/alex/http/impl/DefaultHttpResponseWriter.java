@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class DefaultHttpResponseWriter extends AbstractHttpConfigurableComponent implements HttpResponseWriter {
 
-    DefaultHttpResponseWriter(HttpServerConfig httpServerConfig) {
+    DefaultHttpResponseWriter(DefaultHttpServerConfig httpServerConfig) {
         super(httpServerConfig);
     }
 

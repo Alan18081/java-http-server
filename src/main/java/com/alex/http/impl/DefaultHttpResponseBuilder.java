@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class DefaultHttpResponseBuilder extends AbstractHttpConfigurableComponent implements HttpResponseBuilder {
 
-    DefaultHttpResponseBuilder(HttpServerConfig serverConfig) {
+    DefaultHttpResponseBuilder(DefaultHttpServerConfig serverConfig) {
         super(serverConfig);
     }
 
