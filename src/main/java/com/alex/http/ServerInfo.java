@@ -24,23 +24,12 @@ public class ServerInfo {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getPort() {
         return port;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
     }
 
     public int getThreadCount() {
         return threadCount;
     }
 
-    public void setThreadCount(int threadCount) {
-        this.threadCount = threadCount;
-    }
 }
