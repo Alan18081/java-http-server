@@ -10,6 +10,6 @@ import java.io.IOException;
 public class DefaultHttpRequestDispatcher implements HttpRequestDispatcher {
     @Override
     public void handle(HttpServerContext context, HttpRequest request, HttpResponse response) throws IOException {
-
+        response.setBody("<h1>Hello world</h1>");
     }
 }

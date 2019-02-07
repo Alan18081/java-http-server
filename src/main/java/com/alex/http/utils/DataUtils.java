@@ -15,7 +15,7 @@ public final class DataUtils {
     }
 
     public static List<String> convertToLineList(String message) {
-        return Arrays.asList(message.split("\r\n"));
+        return new LinkedList<>(Arrays.asList(message.split("\r\n")));
     }
 
 }

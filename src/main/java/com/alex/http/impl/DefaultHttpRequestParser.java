@@ -20,6 +20,7 @@ public class DefaultHttpRequestParser implements HttpRequestParser {
     public HttpRequest parseHttpRequest(InputStream in, String remoteAddress) throws IOException, HttpServerException {
         String startingLine = null;
         try {
+            System.out.println(in);
             ParsedRequest request = parseInputStream(in);
             return convertParsedRequestToHttpRequest(request, remoteAddress);
         } catch (RuntimeException e) {
@@ -135,6 +136,7 @@ public class DefaultHttpRequestParser implements HttpRequestParser {
         ParsedRequest(String startingLineAndHeaders, String messageBody) {
             super();
             List<String> list = DataUtils.convertToLineList(startingLineAndHeaders);
+            System.out.println("Some list" + list);
             this.startingLine = list.remove(0);
             if(list.isEmpty()) {
                 this.headersLine = Collections.emptyList();
